@@ -1,3 +1,6 @@
+import { Mongo } from 'meteor/mongo';
+import { Extensions } from '../imports/api/extensions';
+
 Meteor.startup(() => {
   if (Extensions.find().count() === 0) {
     const extensions = [{

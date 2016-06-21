@@ -1,6 +1,9 @@
+<extension-add></extension-add>
+
 <ul>
   <li ng-repeat="extension in extensionsList.extensions">
     {{extension.name}}
     <p>{{extension.number}}</p>
+    <extension-remove extension="extension"></extension-remove>
   </li>
 </ul>
