@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
 
 import template from './extensionsList.html';
 import { Extensions } from '../../../api/extensions';
@@ -25,10 +26,21 @@ const name = 'extensionsList';
 // create a module
 export default angular.module(name, [
   angularMeteor,
+  uiRouter,
   ExtensionAdd,
   ExtensionRemove
 ]).component(name, {
   template,
   controllerAs: name,
   controller: ExtensionsList
-});
+})
+  .config(config);
+
+  function config($stateProvider) {
+    'ngInject';
+    $stateProvider
+      .state('extensions', {
+        url: '/extensions',
+        template: '<extensions-list></extensions-list>'
+      });
+  }
