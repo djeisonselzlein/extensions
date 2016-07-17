@@ -39,8 +39,18 @@ class ExtensionsList {
       },
       extensionsCount() {
         return Counts.get('numberOfExtensions');
+      },
+      isLoggedIn() {
+        return !!Meteor.userId();
+      },
+      currentUserId() {
+        return Meteor.userId();
       }
     });
+  }
+
+  isOwner(extension) {
+    return this.isLoggedIn && extension.owner === this.currentUserId;
   }
 
   pageChanged(newPage){

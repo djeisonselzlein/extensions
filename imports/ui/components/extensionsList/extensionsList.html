@@ -1,4 +1,4 @@
-<extension-add></extension-add>
+<extension-add ng-show="extensionsList.isLoggedIn"></extension-add>
 
 <input type="search" ng-model="extensionsList.searchText" placeholder="Search" />
 
@@ -8,7 +8,7 @@
   <li dir-paginate="extension in extensionsList.extensions | itemsPerPage: extensionsList.perPage" total-items="extensionsList.extensionsCount">
     {{extension.name}}
     <p>{{extension.number}}</p>
-    <extension-remove extension="extension"></extension-remove>
+    <extension-remove extension="extension" ng-show="extensionsList.isOwner(extension)"></extension-remove>
   </li>
 </ul>
 
