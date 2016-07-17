@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
 import template from './extensionRemove.html';
-import { Extensions } from '../../../api/extensions';
+import { Extensions } from '../../../api/extensions/index';
 
 class ExtensionRemove {
   remove() {

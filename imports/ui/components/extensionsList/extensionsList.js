@@ -3,7 +3,7 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import template from './extensionsList.html';
-import { Extensions } from '../../../api/extensions';
+import { Extensions } from '../../../api/extensions/index';
 import { name as ExtensionAdd } from '../extensionAdd/extensionAdd';
 import { name as ExtensionRemove } from '../extensionRemove/extensionRemove';
 
@@ -12,6 +12,8 @@ class ExtensionsList {
     'ngInject';
 
     $reactive(this).attach($scope);
+
+    this.subscribe('extensions');
 
     this.helpers({
       extensions() {

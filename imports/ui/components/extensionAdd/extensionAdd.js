@@ -1,8 +1,10 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
+import { Meteor } from 'meteor/meteor';
+
 import template from './extensionAdd.html';
-import { Extensions } from '../../../api/extensions';
+import { Extensions } from '../../../api/extensions/index';
 
 class ExtensionAdd {
   constructor() {
@@ -10,6 +12,7 @@ class ExtensionAdd {
   }
 
   submit() {
+    this.extension.owner = Meteor.user()._id;
     Extensions.insert(this.extension);
     this.reset();
   }

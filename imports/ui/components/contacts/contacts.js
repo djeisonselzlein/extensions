@@ -15,7 +15,8 @@ export default angular.module(name, [
   angularMeteor,
   uiRouter,
   ExtensionsList,
-  Navigation
+  Navigation,
+  'accounts.ui'
 ]).component(name, {
   template,
   controllerAs: name,
