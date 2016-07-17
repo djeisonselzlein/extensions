@@ -5,9 +5,9 @@
         <extension-add ng-show="extensionsList.isLoggedIn"></extension-add>
 
         <div flex layout="row" layout-padding>
-            <md-input-container>
+            <md-input-container flex="50">
                 <label>Search</label>
-                <input ng-model="extensionsList.searchText">
+                <input ng-model="extensionsList.searchText" type="text">
             </md-input-container>
 
             <!-- <extensions-sort on-change="extensionsList.sortChanged(sort)" property="name" order="1"></extensions-sort> -->
