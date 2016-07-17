@@ -6,6 +6,14 @@ import template from './extensionsSort.html';
 class ExtensionsSort {
   constructor() {
     this.changed();
+
+
+    this.sizes = [
+        "small (12-inch)",
+        "medium (14-inch)",
+        "large (16-inch)",
+        "insane (42-inch)"
+    ];
   }
 
   changed() {

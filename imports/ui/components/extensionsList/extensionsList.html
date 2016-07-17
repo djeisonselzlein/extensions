@@ -1,32 +1,37 @@
-<div layout="column" layout-padding>
-  <extension-add ng-show="extensionsList.isLoggedIn"></extension-add>
-
-  <div flex>
-    <h2 class="md-display-1">Lista de ramais:</h2>
-  </div>
-
-  <div flex layout="row" layout-padding>
-    <md-input-container>
-      <label>Search</label>
-      <input ng-model="extensionsList.searchText">
-    </md-input-container>
-
-    <!-- <extensions-sort on-change="extensionsList.sortChanged(sort)" property="name" order="1"></extensions-sort> -->
-  </div>
-
-  <div layout="column" layout-gt-sm="row">
-    <div flex="50">
-      <md-card dir-paginate="extension in extensionsList.extensions | itemsPerPage: extensionsList.perPage" total-items="extensionsList.extensionsCount">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline" ui-sref="extensionDetails({ extensionId: extension._id })">
-              {{extension.name}}
-              <extension-remove extension="extension" ng-show="extensionsList.isOwner(extension)"></extension-remove>
-            </span>
-            <span class="md-subhead">{{extension.number}}</span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-      <dir-pagination-controls on-page-change="extensionsList.pageChanged(newPageNumber)"></dir-pagination-controls>
+<div layout="row" layout-padding>
+    <div flex="20">
     </div>
-  </div>
+    <div flex="60">
+        <extension-add ng-show="extensionsList.isLoggedIn"></extension-add>
+
+        <div flex layout="row" layout-padding>
+            <md-input-container>
+                <label>Search</label>
+                <input ng-model="extensionsList.searchText">
+            </md-input-container>
+
+            <!-- <extensions-sort on-change="extensionsList.sortChanged(sort)" property="name" order="1"></extensions-sort> -->
+        </div>
+
+        <div layout="column" layout-gt-sm="row">
+            <div flex="40">
+                <md-card dir-paginate="extension in extensionsList.extensions | itemsPerPage: extensionsList.perPage" total-items="extensionsList.extensionsCount">
+                    <md-card-title>
+                        <md-card-title-media>
+                            <div class="md-media-sm card-media" layout layout-align="center center">
+                                <md-icon md-svg-icon="social:ic_person_24px" style="color:grey"></md-icon>
+                            </div>
+                        </md-card-title-media>
+                        <md-card-title-text>
+                            <span class="md-headline">{{extension.name}}</span>
+                            <span class="md-subhead description">{{extension.number}}</span>
+                            <div class="_md-secondary-container">
+                            <extension-remove extension="extension" ng-show="extensionsList.isOwner(extension)"></extension-remove>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card>
+                <dir-pagination-controls on-page-change="extensionsList.pageChanged(newPageNumber)"></dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
