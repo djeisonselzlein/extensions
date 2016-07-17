@@ -1,9 +1,15 @@
 <extension-add></extension-add>
 
+<input type="search" ng-model="extensionsList.searchText" placeholder="Search" />
+
+<extensions-sort on-change="extensionsList.sortChanged(sort)" property="name" order="1"></extensions-sort>
+
 <ul>
-  <li ng-repeat="extension in extensionsList.extensions">
+  <li dir-paginate="extension in extensionsList.extensions | itemsPerPage: extensionsList.perPage" total-items="extensionsList.extensionsCount">
     {{extension.name}}
     <p>{{extension.number}}</p>
     <extension-remove extension="extension"></extension-remove>
   </li>
 </ul>
+
+<dir-pagination-controls on-page-change="extensionsList.pageChanged(newPageNumber)"></dir-pagination-controls>
